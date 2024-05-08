@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Insertion HTML5 Template</title>
+    <!--
+
+    Template 2101 Insertion
+
+    http://www.tooplate.com/view/2101-insertion
+
+    -->
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="/static/css/fontawesome-all.min.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="/static/css/tooplate-style.css">
+    <!-- Templatemo style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+
+<!-- Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
+<div class="tm-main">
+
+    <div class="tm-welcome-section">
+
+        <div class="container text-center tm-welcome-container">
+            <div class="tm-welcome">
+                <i class="fas tm-fa-big fa-music tm-fa-mb-big"></i>
+                <h1 class="text-uppercase mb-3 tm-site-name">Text to Speech</h1>
+                <p class="tm-site-description">... you are driving, but you want to read an article ?</p>
+                <p class="tm-site-description">or you are lazy to read your lecture book ?</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="tm-search-form-container">
+            <form action='/' method="POST" class="form-inline tm-search-form" enctype="multipart/form-data">
+                <div class="text-uppercase tm-new-release"><a href="{{ url_for('dashboard')}}" style="color: black; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'"> New record</a></div>
+                <div class="form-group tm-search-box">
+                    <input type="file" name="file" class="form-control tm-search-input" accept=".pdf"
+                           placeholder=".pdf">
+                    {% if record %}
+                        <h5 style="color: white;">audio{{ record.id }}.mp3</h5>
+                    {% else %}
+                        <input type="submit" value="Upload" class="form-control tm-search-submit">
+                    {% endif %}
+                </div>
+                <div class="form-group tm-advanced-box">
+                    {% if record %}
+                        <a href="{{ url_for('download', id=record.id) }}" class="tm-text-white">Download</a>
+                    {% else %}
+                        <label style="font-size: 18px; color: white">* .pdf only / 1MB-max</label>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+
+
+        <footer class="row">
+            <div class="col-xl-12">
+                <p class="text-center p-4">Copyright &copy; <span class="tm-current-year">2018</span> bvoytash <a
+                        href="http://tooplate.com" class="tm-text-gray"> </a></p>
+            </div>
+        </footer>
+    </div> <!-- .container -->
+
+</div> <!-- .main -->
+
+<!-- load JS -->
+<script src="/static/js/jquery-3.2.1.slim.min.js"></script> <!-- https://jquery.com/ -->
+<script>
+
+    /* DOM is ready
+    ------------------------------------------------*/
+    $(function () {
+
+        if (renderPage) {
+            $('body').addClass('loaded');
+        }
+
+        $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright
+    });
+
+</script>
+</body>
+</html>
