@@ -110,6 +110,4 @@ def not_found_error(error):
 
 
 if __name__ == '__main__':
-    # db.create_all()
-    if 'liveconsole' not in gethostname():
-        app.run()
+    app.run(host="0.0.0.0", port=8000)
