@@ -5,5 +5,5 @@ Simple Flask Application which convert a file from (.pdf) to .mp3 and download i
 
 ## Run from Docker
 ```
-docker run -d -p 8000:8000 bvoytash/flaskapp:1.0.0
+docker run -d -P --name flask-app bvoytash/flaskapp:1.0.0
 ```

@@ -8,18 +8,13 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies
-RUN apt-get update && apt-get install -y libpq-dev gcc
-
-# Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
 
 # Copy the rest of the application code into the container
 COPY . .
 
 # Expose the port the app runs on
-#EXPOSE 5000
+EXPOSE 8000
 
 # Define the command to run the application
 CMD ["python", "app.py"]
